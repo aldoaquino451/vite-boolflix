@@ -30,7 +30,7 @@ export default {
 <template>
   <div class="d-flex gap-4 align-items-center">
 
-    <input type="text" class="form-control" placeholder="Scrivi il titolo" v-model="store.textToSearch">
+    <input @keyup.enter="getApi" type="text" class="form-control" placeholder="Scrivi il titolo" v-model="store.textToSearch">
 
     <select class="form-select">
       <option>Seleziona l'opzione</option>

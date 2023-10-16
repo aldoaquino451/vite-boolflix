@@ -1,26 +1,20 @@
 <script>
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 export default {
   name: 'Card',
-  data() {
-    return {
-      faCircle
-    }
-  },
   props: {
     title: String,
     originalTitle: String,
     language: String,
     rating: Number,
   },
-  methods: {
-    getStars() {
-      console.log(this.rating);
+  computed: {
+    stars() {
+      return Math.round(this.rating / 2); 
     }
   },
   mounted() {
-    this.getStars();
+    
   },
 }
 
@@ -49,12 +43,11 @@ export default {
         v-else>{{ language }}</span>
     </div>
 
-    <div>
-      {{ faCircle }}
-      <i class="fa-regular fa-star"></i>
-      <i class="fa-regular fa-star"></i>
-      <i class="fa-regular fa-star"></i>
-      <i class="fa-regular fa-star"></i>
+    <div class="d-flex">
+      <div v-for="i in 5">
+        <i v-if="stars >= i" class="fa-solid fa-star"></i>
+        <i v-else class="fa-regular fa-star"></i>
+      </div>
     </div>
 
   </div>
