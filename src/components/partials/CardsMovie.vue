@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      store,
+      store
     }
   },
 }
@@ -23,7 +23,7 @@ export default {
     <div class="container-fluid">
       <div class="row ">
         <Card
-          v-for="movie in store.itemsList"
+          v-for="movie in store.showsArr"
           :title="movie.title"
           :originalTitle="movie.original_title"
           :language="movie.original_language"

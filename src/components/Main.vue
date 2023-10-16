@@ -7,24 +7,25 @@ export default {
   name: 'Main',
   data() {
     return {
-      store,
+      store
     }
   },
   components: {
     CardsMovie,
-    CardsSeries,
+    CardsSeries
   }
+
 }
 </script>
 
 <template>
   <div>
-    <div class="p-5 fw-bold fs-3" v-if="store.itemsList.length === 0">
-      <p>{{ store.message }}</p>
+    <div class="p-5 fw-bold fs-3" v-if="store.showsArr.length === 0">
+      <p>{{ store.messageOutput }}</p>
     </div>
     <div v-else>
-      <CardsMovie v-if="store.type === 'movie'" />
-      <CardsSeries v-if="store.type === 'tv'"/>
+      <CardsMovie v-if="store.showTypeOf === 'movie'" />
+      <CardsSeries v-if="store.showTypeOf === 'tv'"/>
     </div>
   </div>
 </template>
