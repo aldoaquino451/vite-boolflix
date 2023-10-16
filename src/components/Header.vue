@@ -12,7 +12,7 @@ export default {
 <template>
   <div class="my-header d-flex justify-content-between p-4 "> 
     <div class="logo">
-      <img src="public\logo-boolflix.png" alt="">
+      <img src="/logo-boolflix.png" alt="logo">
     </div>
     <SearchBar />
   </div>

@@ -14,7 +14,7 @@ export default {
 <template>
   <div>
     <CardsMovie />
-    <CardsSeries />
+    <!-- <CardsSeries /> -->
   </div>
 </template>
 

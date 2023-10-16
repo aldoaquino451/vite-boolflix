@@ -1,11 +1,17 @@
 <script>
 import Card from './Card.vue';
+import { store } from '../../data/store';
 
 export default {
   name: 'CardsMovie',
   components: {
     Card
-  }
+  },
+  data() {
+    return {
+      store,
+    }
+  },
 }
 </script>
 
@@ -16,9 +22,12 @@ export default {
 
     <div class="container-fluid">
       <div class="row ">
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          v-for="movie in store.moviesArr"
+          :title="movie.title"
+          :originalTitle="movie.original_title"
+          :language="movie.original_language"
+          :rating="movie.vote_average" />
       </div>
     </div>
 
