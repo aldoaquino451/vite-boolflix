@@ -1,7 +1,14 @@
-# Vue 3 + Vite
+Boolflix 
+===
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Esercizio
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- &check; markup grafico suddiviso in header e main 
+- &check; nell'header mettiamo la componente searchBar composta da input testo e input select
+- &check; nel main mettiamo il container card film e container card serie
+- in base alla select scegliamo quali container card visualizzare
+- ogni card deve avere un titolo, descrizione, immagine, lingua e rating
+- facciamo una chiamata getApi a axios 
+- creiamo un file store dove salvare i dati che ci arrivano dall'api
+- rendiamo dinamico il contenuto delle card inserendo le 5 props
+- tramite emit andiamo a creare l'opzione di visualizzazione

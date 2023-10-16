@@ -1,12 +1,12 @@
 <script>
 import Header from './components/Header.vue';
-import CardsContainer from './components/CardsContainer.vue';
+import Main from './components/Main.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    CardsContainer
+    Main
   }
 }
 </script>
@@ -14,7 +14,7 @@ export default {
 <template>
   <div>
     <Header />
-    <CardsContainer />
+    <Main />
   </div>
 </template>
 
