@@ -22,8 +22,8 @@ export default {
 
 <template>
 
-<div class="col-4 my-4">
-  <div class="card">
+<div class="col-3 my-4">
+  <div class="card gap-2 ">
 
     <span class="title">{{ title }}</span>
 
@@ -57,24 +57,28 @@ export default {
 
 <style lang="scss" scoped>
 
-.title {
+.card {
+  padding: 20px 10px;
+  background-color: bisque;
+  min-height: 300px;
+  .title {
   font-size: 1.4rem;
   font-weight: bold;
-}
-
-.original-title {
-  font-size: 1.2rem;
-  font-style: italic;
-}
-
-.language {
-  img {
-    height: 30px;
   }
-  span {
+
+  .original-title {
+    font-size: 1.2rem;
     font-style: italic;
-    font-weight: 700;
-    text-transform: uppercase;
+  }
+  .language {
+    img {
+      height: 30px;
+    }
+    span {
+      font-style: italic;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 }
 

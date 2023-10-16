@@ -16,14 +16,14 @@ export default {
 </script>
 
 <template>
-  <div class="container border my-3">
+  <div class="container my-3">
   
-    <h1>Film</h1>
+    <h1 class="p-3">Film</h1>
 
     <div class="container-fluid">
       <div class="row ">
         <Card
-          v-for="movie in store.moviesArr"
+          v-for="movie in store.itemsList"
           :title="movie.title"
           :originalTitle="movie.original_title"
           :language="movie.original_language"
@@ -35,7 +35,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 
 
 </style>

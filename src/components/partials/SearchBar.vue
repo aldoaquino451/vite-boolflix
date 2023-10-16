@@ -11,35 +11,37 @@ export default {
     }
   },
   methods: {
-    getApi() {
-      const searchMovie = store.endPoint + store.typeOf + '?api_key=3048ade5f6d1aeeef87dc9e824a28e98' + '&language=it-IT' +  '&query=';  
-      axios.get( searchMovie + store.textToSearch )
+    getApi(type) {
+      const search = store.endPoint + type + '?api_key=3048ade5f6d1aeeef87dc9e824a28e98' + '&language=it-IT' +  '&query=' + store.textToSearch ;  
+      axios.get(search)
       .then( res => {
-        store.moviesArr = res.data.results;
-        console.log(store.moviesArr );
+        store.itemsList = res.data.results;
+        store.message = 'Nessun risultato trovato'
+        console.log(store.itemsList );
       })
       .catch( err => {
         console.log(err); 
       });
-      console.log(store.textToSearch);
     },
-  }
+  },
+  computed: {
+    
+  },
 }
 </script>
 
 <template>
   <div class="d-flex gap-4 align-items-center">
 
-    <input @keyup.enter="getApi" type="text" class="form-control" placeholder="Scrivi il titolo" v-model="store.textToSearch">
+    <input @keyup.enter="getApi('tv')" type="text" class="form-control" placeholder="Scrivi il titolo" v-model="store.textToSearch">
 
     <select class="form-select">
       <option>Seleziona l'opzione</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
+      <option value="movie">Film</option>
+      <option value="tv">Serie TV</option>
     </select>
 
-    <button @click="getApi " class="btn btn-primary">Cerca</button>
+    <button @click="getApi('movie') " class="btn btn-primary">Cerca</button>
 
   </div>
 </template>
