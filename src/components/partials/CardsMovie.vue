@@ -12,6 +12,14 @@ export default {
       store
     }
   },
+  methods: {
+    image_store(movie) {
+      if (movie.backdrop_path) {
+        return store.image_endpoint+ store.image_size + movie.backdrop_path 
+      }
+      return ''
+    }
+  },
 }
 </script>
 
@@ -24,6 +32,7 @@ export default {
       <Card
         v-for="movie in store.showsArr"
         :key="movie.id"
+        :image="image_store(movie)"
         :title="movie.title"
         :originalTitle="movie.original_title"
         :language="movie.original_language"

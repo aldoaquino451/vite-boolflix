@@ -13,11 +13,11 @@ export default {
     }
   },
   methods: {
-    image_store(series) {
-      if (series.backdrop_path) {
-        return store.image_endpoint+ store.image_size + series.backdrop_path 
+    image_store(tv) {
+      if (tv.backdrop_path) {
+        return store.image_endpoint+ store.image_size + tv.backdrop_path 
       }
-      return false
+      return ''
     }
   },
 }
@@ -31,13 +31,13 @@ export default {
     <div class="container-fluid">
       <div class="row ">
         <Card
-          v-for="series in store.showsArr"
-          :key="series.id"
-          :title="series.name"
-          :originalTitle="series.original_name"
-          :language="series.original_language"
-          :rating="series.vote_average" 
-          :image="image_store(series)" />
+          v-for="tv in store.showsArr"
+          :key="tv.id"
+          :image="image_store(tv)"
+          :title="tv.name"
+          :originalTitle="tv.original_name"
+          :language="tv.original_language"
+          :rating="tv.vote_average" />
       </div>
     </div>
 
