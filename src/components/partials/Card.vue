@@ -7,6 +7,7 @@ export default {
     originalTitle: String,
     language: String,
     rating: Number,
+    image: String
   },
   computed: {
     stars() {
@@ -24,6 +25,8 @@ export default {
 
 <div class="col-3 my-4">
   <div class="card gap-2 ">
+
+    <img v-if="image" :src="image" :alt="title">
 
     <span class="title">{{ title }}</span>
 

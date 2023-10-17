@@ -19,8 +19,8 @@ export default {
 </script>
 
 <template>
-  <div>
-    <div class="p-5 fw-bold fs-3" v-if="store.showsArr.length === 0">
+  <div class="pt-4">
+    <div class="ps-5 fw-bold fs-3" v-if="store.showsArr.length === 0">
       <p>{{ store.messageOutput }}</p>
     </div>
     <div v-else>

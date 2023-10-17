@@ -12,6 +12,14 @@ export default {
       store
     }
   },
+  methods: {
+    image_store(series) {
+      if (series.backdrop_path) {
+        return store.image_endpoint+ store.image_size + series.backdrop_path 
+      }
+      return false
+    }
+  },
 }
 </script>
 
@@ -24,10 +32,12 @@ export default {
       <div class="row ">
         <Card
           v-for="series in store.showsArr"
+          :key="series.id"
           :title="series.name"
           :originalTitle="series.original_name"
           :language="series.original_language"
-          :rating="series.vote_average" />
+          :rating="series.vote_average" 
+          :image="image_store(series)" />
       </div>
     </div>
 

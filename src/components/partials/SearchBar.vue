@@ -14,16 +14,23 @@ export default {
   methods: {
     getApi() {
       store.showTypeOf = this.selected
-      const research = store.API_endpoint + store.showTypeOf + store.API_key_language + '&query=' + store.textToSearch ;  
-      axios.get(research)
-      .then( res => {
-        store.showsArr = res.data.results;
-        store.messageOutput = 'Nessun risultato trovato'
-        console.log(store.showsArr);
+       
+      // axios.get(store.endpoint + store.showTypeOf + '?query=' + store.textToSearch + '&api_key=' + store.api_key + '&language=' + store.language )
+      axios.get(store.endpoint + store.showTypeOf, {
+        params: {
+          query: store.textToSearch,
+          api_key: store.api_key,
+          language: store.language
+        }
       })
-      .catch( () => {
-        store.messageOutput = 'Scegli la categoria' 
-      });
+        .then( res => {
+          store.showsArr = res.data.results;
+          store.messageOutput = 'Nessun risultato trovato'
+          console.log(store.showsArr);
+        })
+        .catch( () => {
+          store.messageOutput = 'Scegli la categoria' 
+        });
     },
   },
 
