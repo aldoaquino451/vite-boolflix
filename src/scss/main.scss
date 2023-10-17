@@ -1,4 +1,14 @@
-@use './partials/general' as *;
 @use './partials/vars' as *;
 
 @import 'bootstrap/scss/bootstrap';
+@import '@fontsource/montserrat';
+@import '@fontsource/montserrat/400-italic.css';
+@import '@fontsource/montserrat/700.css';
+@import '@fontsource/montserrat/900.css';
+
+body {
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background-color: #434343;
+}

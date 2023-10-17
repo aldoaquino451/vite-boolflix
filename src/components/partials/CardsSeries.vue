@@ -24,11 +24,11 @@ export default {
 </script>
 
 <template>
-<div class="aa-container my-3">
+<div class="my-container my-3">
 
-  <h1>Serie TV</h1>
+  <h2>Serie TV</h2>
 
-  <div class="aa-cards d-flex flex-wrap justify-content-center  ">
+  <div class="my-cards d-flex flex-wrap justify-content-center  ">
     <Card
       v-for="tv in store.showsArr"
       :key="tv.id"
@@ -45,16 +45,19 @@ export default {
 
 <style lang="scss" scoped>
 
-.aa-container {
+.my-container {
   width: 80%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
-  h1 {
+  h2 {
     padding-bottom: 20px;
-    border-bottom: 2px solid lightsteelblue ;
+    border-bottom: 5px solid #bb2d3b ;
     margin-bottom: 40px;
+    color: #bb2d3b;
+    font-size: 3rem;
+    font-weight: 700;
   }
-  .aa-cards {
+  .my-cards {
     gap: 30px;
   }
 }
