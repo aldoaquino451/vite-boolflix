@@ -14,6 +14,6 @@ export const store = reactive({
   //   textToSearch: '',
   // },
   image_endpoint: 'https://image.tmdb.org/t/p/',
-  image_size: 'w300',
+  image_size: 'w500',
   image_store: 'backdrop_path'
 })

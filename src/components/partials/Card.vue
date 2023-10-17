@@ -23,11 +23,13 @@ export default {
 
 <template>
 
-<div class="col-3 my-4">
-  <div class="card gap-2 ">
+<div class="aa-card gap-2 ">
 
+  <div class="image-cover">
     <img v-if="image !== ''" :src="image" :alt="title">
+  </div>
 
+  <div class="info ">
     <span class="title">{{ title }}</span>
 
     <span class="original-title">{{ originalTitle }}</span>
@@ -52,35 +54,58 @@ export default {
         <i v-else class="fa-regular fa-star"></i>
       </div>
     </div>
-
   </div>
+
 </div>
 
 </template>
 
 <style lang="scss" scoped>
 
-.card {
-  padding: 20px 10px;
-  background-color: bisque;
-  min-height: 300px;
-  .title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  }
+.aa-card {
+  width: 280px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.8  );
+  height: 400px;
+  overflow: hidden;
+  position: relative;
 
-  .original-title {
-    font-size: 1.2rem;
-    font-style: italic;
-  }
-  .language {
+  .image-cover {
+    width: 100%;
+    height: 100%;
     img {
-      height: 30px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    span {
+  }
+  .info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5 );
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    .title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    }
+
+    .original-title {
+      font-size: 1.2rem;
       font-style: italic;
-      font-weight: 700;
-      text-transform: uppercase;
+    }
+    .language {
+      img {
+        height: 30px;
+      }
+      span {
+        font-style: italic;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
     }
   }
 }

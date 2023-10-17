@@ -24,25 +24,39 @@ export default {
 </script>
 
 <template>
-  <div class="container my-3">
-  
-    <h1>Film</h1>
+<div class="aa-container my-3">
 
-    <div class="row ">
-      <Card
-        v-for="movie in store.showsArr"
-        :key="movie.id"
-        :image="image_store(movie)"
-        :title="movie.title"
-        :originalTitle="movie.original_title"
-        :language="movie.original_language"
-        :rating="movie.vote_average" />
-    </div>
+  <h1>Film</h1>
 
+  <div class="aa-cards d-flex flex-wrap justify-content-center  ">
+    <Card
+      v-for="movie in store.showsArr"
+      :key="movie.id"
+      :image="image_store(movie)"
+      :title="movie.title"
+      :originalTitle="movie.original_title"
+      :language="movie.original_language"
+      :rating="movie.vote_average" />
   </div>
+
+</div>
 </template>
+
 
 <style lang="scss" scoped>
 
+.aa-container {
+  width: 80%;
+  max-width: 1400px;
+  margin: 0 auto;
+  h1 {
+    padding-bottom: 20px;
+    border-bottom: 2px solid lightsteelblue ;
+    margin-bottom: 40px;
+  }
+  .aa-cards {
+    gap: 30px;
+  }
+}
 
 </style>
