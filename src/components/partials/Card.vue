@@ -1,22 +1,27 @@
 <script>
+import Star from './Star.vue';
 
 export default {
   name: 'Card',
+  components: {
+    Star
+  },
   props: {
     title: String,
     originalTitle: String,
     language: String,
     rating: Number,
-    image: String
+    image: String,
+    description: String
   },
   computed: {
+    ratingOf5() {
+      return (this.rating / 2).toFixed(1)
+    },
     stars() {
-      return Math.round(this.rating / 2); 
+      return Math.round(this.ratingOf5); 
     }
-  },
-  mounted() {
-    
-  },
+  }
 }
 
 </script>
@@ -30,31 +35,42 @@ export default {
   </div>
 
   <div class="info ">
+
     <span class="title">{{ title }}</span>
 
     <span class="original-title">{{ originalTitle }}</span>
 
     <div class="language">
-      <img
+
+      <span class="" :class="`lang-icon lang-icon-${language}`"></span>
+      <!-- <img
         v-if="language === 'en' "
         class="img-fluid"
-        src="/en.png"
+        src="../../assets/en.png"
         alt="english">
       <img
         v-else-if="language === 'it'"
-        src="/it.png"
+        src="../../assets/it.png"
         alt="italian">
       <span
-        v-else>{{ language }}</span>
+        v-else>{{ language }}</span> -->
     </div>
 
-    <div class="d-flex">
+    <div class="stars d-flex">
       <div v-for="i in 5">
         <i v-if="stars >= i" class="fa-solid fa-star"></i>
         <i v-else class="fa-regular fa-star"></i>
       </div>
-      <span class="ps-3">{{ rating.toFixed(1) }}</span>
+      <span class="ps-3">{{ ratingOf5 }} / 5.0</span>
     </div>
+
+    <p class="mt-2 fs-6">
+      <strong><i>Descrizione:&nbsp;&nbsp;</i></strong>
+      <span>{{ description }}</span>
+    </p>
+
+    <!-- <Star /> -->
+
   </div>
 
 </div>
@@ -63,14 +79,20 @@ export default {
 
 <style lang="scss" scoped>
 
+
+.lang-icon {
+  background-image: url(@textabledev/langs-flags-list/lang-flags.png );
+  margin: 5px 15px;
+  scale: 2;
+}
 .my-card {
   width: 320px;
+  height: 480px;
+  position: relative;
   padding: 10px;
   border: 2px solid bisque;
   background-color: rgba(0, 0, 0, 0.8);
-  height: 480px;
   overflow: hidden;
-  position: relative;
   box-shadow: 0px 4px 8px 0px black;
   animation: all;
 
@@ -93,17 +115,16 @@ export default {
   }
   .info {
     // display: none;
+    height: 100%;
     display: flex; 
+    flex-direction: column;
     position: absolute;
     bottom: -100%;
     right: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
     padding: 20px;
-    flex-direction: column;
-    font-size: 18px;
-    height: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
     overflow: auto;
     animation: all;
     .title {
@@ -116,15 +137,18 @@ export default {
       font-style: italic;
     }
     .language {
-      margin: 1.3em 0;
+      margin-top: 1em;
       img {
-        height: 40px;
+        height: 1.7em;
       }
       span {
-        font-style: italic;
         font-weight: 700;
+        font-style: italic;
         text-transform: uppercase;
       }
+    }
+    .stars {
+      margin: 0.8rem 0;
     }
   }
 }

@@ -13,9 +13,13 @@ export default {
   },
   methods: {
     getApi() {
-      this.reset();
+      // ho scelto con select lo show da cercare
       store.showTypeOf = this.selected;
 
+      // resetto
+      this.reset();
+
+      // parte la chiamata 
       axios.get(store.endpoint + store.showTypeOf, {
         params: {
           query: store.textToSearch,
@@ -23,28 +27,34 @@ export default {
           language: store.language
         }
       })
+      // ottengo il risultato 
       .then( res => {
         store.showsArr = res.data.results;
         this.imageMain();
         
+        console.log(store.imageMainIndex);
+        console.log(store.highestVote);
         console.log(store.showsArr);
+
         store.messageOutput = 'Nessun risultato trovato'
       })
+      // ottengo un errore
       .catch( () => {
         store.messageOutput = 'Scegli la categoria' 
       });
     },
 
+    // ottengo l'immagine che compare in copertina
     imageMain() {
       store.showsArr.forEach( (show, index) => {
         if ( show.popularity > store.highestVote ) {
           store.imageMainIndex = index
           store.highestVote = show.popularity
-          console.log(store.imageMainIndex);
-          console.log(store.highestVote);
         }
       })
     },
+
+    // resetto la lista di film/serietv ogni volta che faccio partire una ricerca
     reset() {
       store.showsArr = [];
       store.highestVote = 0

@@ -14,7 +14,7 @@ export const store = reactive({
   //   textToSearch: '',
   // },
   image_endpoint: 'https://image.tmdb.org/t/p/',
-  image_size: 'w1280',
+  image_size: 'w500',
   image_store: '',
 
   highestVote: 0,

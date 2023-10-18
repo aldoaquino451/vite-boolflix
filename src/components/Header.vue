@@ -23,7 +23,7 @@ export default {
 <template>
   <div class="my-header d-flex justify-content-between"> 
     <div class="logo" @click="reset">
-      <img src="/logo-boolflix.png" alt="logo">
+      <img src="../assets/logo-boolflix.png" alt="logo">
     </div>
     <SearchBar />
   </div>
